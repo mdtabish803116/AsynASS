@@ -47,23 +47,27 @@ var foodArr = [
 
 ];
 
-
+   var isOpen = true;
 function createOrders(items){
-     displayItem(items);
     return new Promise((resolve , reject) => {
          alert("order Created")
         console.log("order created");
         setTimeout(() =>{
-           resolve(items);
+            if(isOpen){
+                resolve(items);
+            }else {
+                reject("Restaurent is Closed !")
+            }
+           
         } , 2000)
     });
 }
 // console.log(foodArr);
-var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
+// var orderedItems = JSON.parse(localStorage.getItem("orderedItems"));
 
-if(orderedItems == null){
-    localStorage.setItem("orderedItems",JSON.stringify([]));
-}
+// if(orderedItems == null){
+//     localStorage.setItem("orderedItems",JSON.stringify([]));
+// }
 
 foodArr.forEach(function(item){
      var foodCart = document.createElement("div");
@@ -108,36 +112,47 @@ foodArr.forEach(function(item){
 // }
 
 const button = document.getElementById("btn");
+document.querySelector("#container2").style.display = "none";
 
 button.addEventListener("click", function(){
-//    document.querySelector("body").style.display = "none";
+   document.querySelector("#container1").style.display = "none";
     var orderItem = [];
 
     const items = document.querySelectorAll("#foodCart");
+      console.log(items);
 
     for(let i = 0; i < items.length; i++){
         if(items[i].lastChild.checked){
-            orderItem.push(items[i].innerHTML);
+            orderItem.push(items[i].children[0]);
         }
     }
+
+    console.log(orderItem);
    
     createOrders(orderItem)
     .then((items) => {
-         alert("Your order is ready")
-        console.log("order is ready");
-        console.log(items);
+         alert("Your order is ready");
+         displayItem(items);
+         console.log(items);
     }).catch((err) => {
+          alert(err);
          console.log(err);
     })
      
 })
+       var count = 0;
+  function displayItem(item){
+       count++;
+    document.querySelector("#container2").style.display = "block";
+         document.getElementById("orderNo").textContent = `ORDER NO : item0${count}`
+      item.forEach(function(each){
+        document.querySelector("#foodcontainer2").append(each);
+      })
+  }
 
-//   function displayItem(item){
-//       item.forEach(function(each){
-//          var imgDiv = document.createElement("div");
-//              imgDiv.innerHTML = `${each}`;
-//       })
-//   }
+  document.getElementById("backBtn").addEventListener("click" , function(){
+        window.location.reload();
+  })
 
 
 

@@ -1,4 +1,4 @@
-#foodContainer {
+#foodContainer , #foodcontainer2 {
     width : 80%;
     display : grid;
     gap : 20px;
@@ -13,5 +13,9 @@
 
 #foodContainer > div img {
     width : 100%;
+}
+
+#orderNo{
+    text-align : right;
 }
 

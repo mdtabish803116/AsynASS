@@ -1,0 +1,28 @@
+#formContainer {
+    width : 400px;
+    margin : auto;
+    margin-top : 30px;
+}
+
+
+#formContainer > #form{
+    display : flex;
+    flex-direction: column;
+    width : 80%;
+    margin : auto;
+    margin-top : 50px;
+    font-size : 20px;
+}
+
+#formContainer  input{
+     outline : none;
+   border : 1px solid black;
+    border-radius: 5px;;
+    height : 30px;
+    margin-bottom : 10px;
+    font-size : 18px;
+}
+
+#formContainer   input#login{
+      margin-top : 30px;
+}

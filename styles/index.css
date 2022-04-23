@@ -1,0 +1,50 @@
+#movieSliderContainer {
+    width : 70%;
+    margin : auto;
+    height : 300px;
+    margin-top : 50px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border : 5px solid teal
+}
+
+#movieSliderContainer img {
+    width : 100%;
+    height : 100%;
+}
+
+#movieContainer{
+    display : grid;
+    grid-template-columns: repeat(3 , 1fr);
+    width : 80%;
+    margin : auto;
+    gap : 30px;
+    margin-top : 40px;
+    margin-bottom : 20px;
+}
+
+#movieContainer > div {
+   border : 2px solid  teal;
+   text-align : center;
+   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+#movieContainer > div > div:first-child{
+    height : 200px;
+}
+
+#movieContainer > div > div{
+    margin-bottom : 10px;
+    font-size : 20px;
+}
+
+#movieContainer img{
+    width : 100%;
+    height : 100%;
+}
+
+#sortingContainer {
+    width : 30%;
+    margin-left : 30px;
+    font-size : 20px;
+    margin-top : 50px;
+}
